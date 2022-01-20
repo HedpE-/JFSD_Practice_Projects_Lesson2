@@ -47,7 +47,7 @@ public class EmailValidation {
 				System.out.println("Enter your email (Type Q to quit):");
 				input = sc.next();
 				
-				if(input.equals("Q"))
+				if(input.toLowerCase().equals("q"))
 					break;
 			} 
 			while (!pv.grantAccess(input));
