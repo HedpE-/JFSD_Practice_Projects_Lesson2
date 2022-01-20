@@ -5,8 +5,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class EmailValidation
-{
+public class EmailValidation {
 	private final String[] authorizedEmails =
 		{
 				"person1@email.com",
@@ -16,43 +15,35 @@ public class EmailValidation
 				"person5@email.com"
 		};
 
-	public boolean grantAccess(String input)
-	{
+	public boolean grantAccess(String input) {
 		String regex = "^(.+)@(.+)\\.(.+)$";
 
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(input);
-		if(matcher.matches())
-		{
-			if(Arrays.asList(authorizedEmails).contains(input))
-			{
+		if(matcher.matches()) {
+			if(Arrays.asList(authorizedEmails).contains(input))	{
 				System.out.println("Access Granted!!!");
 				return true;
 			}
-			else
-			{
+			else {
 				System.out.println("Access Denied!!!");
 				return false;
 			}
 		}
-		else
-		{
+		else {
 			System.out.println("Invalid email.");
 			return false;
 		}
 	}
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		EmailValidation pv = new EmailValidation();
 		Scanner sc = new Scanner(System.in);
 
 		String input;
 
-		try
-		{
-			do
-			{
+		try	{
+			do {
 				System.out.println("Enter your email (Type Q to quit):");
 				input = sc.next();
 				
@@ -61,16 +52,13 @@ public class EmailValidation
 			} 
 			while (!pv.grantAccess(input));
 		}
-		catch(Exception e)
-		{
+		catch(Exception e) {
 			e.printStackTrace();
 		}
-		finally
-		{
+		finally	{
 			sc.close();
 		}
 
 		System.out.println("\nBye!!");
 	}
-
 }
